@@ -25,12 +25,14 @@ $app = Application::configure(basePath: dirname(__DIR__))
 
 if (getenv('VERCEL')) {
     $app->useStoragePath('/tmp/storage');
+    $app->useBootstrapPath('/tmp/bootstrap');
 
     $dirs = [
         '/tmp/storage/framework/cache/data',
         '/tmp/storage/framework/sessions',
         '/tmp/storage/framework/views',
         '/tmp/storage/logs',
+        '/tmp/bootstrap/cache',
     ];
     foreach ($dirs as $dir) {
         if (!is_dir($dir)) {
